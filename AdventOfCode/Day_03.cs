@@ -1,3 +1,6 @@
+using System.Diagnostics;
+
+
 namespace AdventOfCode;
 
 public class Day_03 : BaseDay
@@ -53,8 +56,6 @@ public class Day_03 : BaseDay
     }
     private string SecondSolution() {
         int total = 0;
-        HashSet<char> set = new HashSet<char>();
-
         for(int i = 0; i < input.Length; i += 3) {
            
            string first = input[i];
@@ -63,12 +64,11 @@ public class Day_03 : BaseDay
 
            char inAll = 'a';
            foreach(char c in first) {
-                if(second.Contains(c) && third.Contains(c)) {
-                    inAll = c;
-                    break;
-                }
+            if(second.Contains(c) && third.Contains(c)) {
+                inAll = c;
+                break;
+            }
            }
-
 
             int value = 0;
             if((int)inAll > (int)'Z') {
